@@ -5,6 +5,8 @@ import { store } from './app/store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
+import { ApiProvider } from '@reduxjs/toolkit/dist/query/react';
+import { apiSlice } from './features/api/apislice';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -12,7 +14,9 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
+      <ApiProvider api = {apiSlice}>
       <App />
+      </ApiProvider>
     </Provider>
   </React.StrictMode>
 );
